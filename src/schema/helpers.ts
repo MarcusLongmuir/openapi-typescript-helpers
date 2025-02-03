@@ -7,10 +7,10 @@ import type { ToValueType } from "./value-types";
 
 
 
-
-
-
-
+export type GetOperationById<
+  S extends OpenAPISchema,
+  Id extends string,
+> = Extract<GetAllOperations<S>, { operationId: Id }>;
 
 
 
