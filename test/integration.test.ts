@@ -1,4 +1,7 @@
 
+  type GetOperationByPathAndMethod,
+  type OpenAPIHandler,
+  type OpenAPIResponseTypes,
 
 
 
@@ -46,6 +49,7 @@
 
 
 
+        if (req.body?.includeCategories) {
 
 
 
@@ -142,11 +146,7 @@
 
 
 
-
-
-
-
-
+    expect(listResponse.headers?.["x-next"]).toEqual("some-string");
 
 
 

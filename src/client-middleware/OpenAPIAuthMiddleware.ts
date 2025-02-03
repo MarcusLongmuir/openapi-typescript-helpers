@@ -1,5 +1,5 @@
-
-
+import type { OpenAPIClientRequestParameters } from "../client";
+import type {
 
 
 

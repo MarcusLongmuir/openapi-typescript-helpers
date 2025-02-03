@@ -2,6 +2,7 @@
 
 
 
+    const pathMatcher = new PathMatcher("/some/{p1}/{p2}");
 
 
 
@@ -30,6 +31,7 @@
 
 
 
+    const pathMatcher = new PathMatcher("/some/{p1}/{p2}/");
 
 
 
@@ -58,9 +60,7 @@
 
 
 
-
-
-
+    const pathMatcher = new PathMatcher("/foo/{p1}/{p2}/");
 
 
 

@@ -4,6 +4,11 @@
 
 
 
+import type {
+  GenericOpenAPIRequest,
+  GenericOpenAPIResponse,
+} from "./handler-types";
+import type { OpenAPIHandler } from "./handlers";
 
 
 
@@ -62,6 +67,7 @@
 
 
 
+    ? `${str.slice(0, maxLength)}... [truncated]`
 
 
 
@@ -89,6 +95,7 @@
 
 
 
+  enableLogging = true,
 
 
 
@@ -129,15 +136,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
+          loggableReq.headers = undefined;
+          loggableReq.bodyString = undefined;
 
 
 

@@ -1,7 +1,15 @@
 
+import type { JSONSchema7 } from "json-schema";
 
+import type { DeepReadonly } from "../schema/DeepReadonly";
+import type { GetOperationByPathAndMethod } from "../schema/helpers";
+import type { OpenAPIMethods, OpenAPISchema } from "../schema/openapi-schema";
+import type { RequestBodyTypeForOperation } from "../schema/request";
+import type { OpenAPIResponseTypes } from "../schema/response";
 
+import { PathMatcher } from "./PathMatcher";
 
+import type {
 
 
 
@@ -37,6 +45,7 @@
 
 
 
+  const operation = schema.paths[opPath][
 
 
 
@@ -204,21 +213,12 @@
 
 
 
+    let responseCode: number;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+      responseCode = Number.parseInt(responseObj.code);
+      if (Number.isNaN(responseCode)) {
 
 
 

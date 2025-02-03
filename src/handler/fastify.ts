@@ -1,10 +1,10 @@
 
 
-
-
-
-
-
+import type {
+  GenericOpenAPIRequest,
+  GenericOpenAPIResponse,
+} from "./handler-types";
+import type { OpenAPIHandler } from "./handlers";
 
 
 

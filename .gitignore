@@ -1,7 +1,7 @@
+dist
+node_modules
+.devbox
+.tsbuildinfo
 
 
-
-
-
-
-
+.DS_Store

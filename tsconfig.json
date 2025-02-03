@@ -1,23 +1,23 @@
 
+  "include": ["src/**/*"],
+
+    "outDir": "./dist",
+    "tsBuildInfoFile": ".tsbuildinfo",
 
 
+    "skipLibCheck": true,
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    // strictness
+    "strict": true,
+    "noImplicitOverride": true,
+    // we're using a bundler
+    "module": "preserve",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    // this is a browser SDK
+    "lib": ["esnext", "dom", "dom.iterable"]
+  }
+}

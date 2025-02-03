@@ -1,3 +1,8 @@
+import type { ComponentDefinitionFromString } from "./helpers";
+import type {
+  OpenAPIComponentDefinition,
+  OpenAPISchema,
+} from "./openapi-schema";
 
 
 
@@ -49,15 +54,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
+                : C extends {
+                      $ref: `#/components/schemas/${infer R}`;
+                    }
+                  ? ToValueType<S, ComponentDefinitionFromString<S, R>>
 
 
 
