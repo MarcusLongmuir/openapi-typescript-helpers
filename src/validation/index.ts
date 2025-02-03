@@ -1,1 +1,1 @@
-
+export * from "./createSchemaComponentValidator";

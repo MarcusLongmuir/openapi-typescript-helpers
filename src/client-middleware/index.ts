@@ -1,1 +1,1 @@
-
+export * from "./OpenAPIAuthMiddleware";

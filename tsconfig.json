@@ -1,12 +1,12 @@
-
+{
   "include": ["src/**/*"],
-
+  "compilerOptions": {
     "outDir": "./dist",
     "tsBuildInfoFile": ".tsbuildinfo",
-
-
+    "incremental": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-
+    "target": "esnext",
     "moduleDetection": "force",
     "isolatedModules": true,
     // strictness
