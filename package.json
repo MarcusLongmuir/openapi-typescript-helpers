@@ -14,7 +14,7 @@
     "build": "run-p build:*",
     "build:cjs": "esbuild ./src/index.ts --outdir=./dist --out-extension:.js=.cjs --platform=node --bundle",
     "build:esm": "esbuild ./src/index.ts --outdir=./dist --out-extension:.js=.mjs --platform=neutral --bundle --main-fields=main",
-    "build:types": "tsc --declarationDir ./dist/types",
+    "build:types": "tsc --declarationDir ./dist",
     "clean": "rm -rf ./dist",
     "prepublishOnly": "run-s ts:validate",
     "test": "jest",
