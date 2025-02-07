@@ -1,7 +1,6 @@
-import type { ComponentTypeFromName } from "@marcuslongmuir/openapi-typescript-helpers";
-
 import type {
   ComponentDefinitionFromName,
+  ComponentTypeFromName,
   GetOperationByPathAndMethod,
   RequestBodyTypeForOperation,
   ToValueType,

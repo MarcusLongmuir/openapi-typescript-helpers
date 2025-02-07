@@ -1,6 +1,6 @@
 {
   "name": "@marcuslongmuir/openapi-typescript-helpers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Types and utilities for creating framework-agnostic HTTP handlers and clients.",
   "license": "MIT",
   "keywords": [
@@ -20,7 +20,7 @@
     "test": "jest",
     "ts:check": "biome check",
     "ts:check:fix": "biome check --write",
-    "ts:depcheck": "depcheck",
+    "ts:depcheck": "depcheck --ignores=@types/jest",
     "ts:fmt": "biome format",
     "ts:fmt:fix": "biome format --write",
     "ts:lint": "biome lint",
