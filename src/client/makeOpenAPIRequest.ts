@@ -80,7 +80,7 @@ export async function makeOpenAPIRequest<
     headers.set("Content-Type", "application/json");
   }
   const request = new Request(url.toString(), {
-    method,
+    method: method.toUpperCase(),
     headers,
     body: req.body ? JSON.stringify(req.body) : undefined,
   });
