@@ -1,6 +1,6 @@
 {
   "name": "@marcuslongmuir/openapi-typescript-helpers",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Types and utilities for creating framework-agnostic HTTP handlers and clients.",
   "license": "MIT",
   "keywords": [
