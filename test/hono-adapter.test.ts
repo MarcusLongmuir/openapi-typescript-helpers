@@ -58,6 +58,13 @@ beforeAll(() => {
       return Promise.resolve({ code: 204 });
     }),
   );
+
+  registerOpenAPIHandlerToHono(
+    app,
+    createHandler(schema, "/get-obj", "post", {}, () => {
+      throw new Error("intentional error");
+    }),
+  );
 });
 
 describe("Hono adapter", () => {
@@ -127,5 +134,11 @@ describe("Hono adapter", () => {
     const body = await res.json();
     expect(body.errors).toBeDefined();
     expect(body.errors.length).toBeGreaterThan(0);
+  });
+
+  test("handler error returns 500", async () => {
+    const res = await app.request("/get-obj", { method: "POST" });
+    expect(res.status).toBe(500);
+    expect(await res.json()).toEqual({ message: "Internal Server Error" });
   });
 });

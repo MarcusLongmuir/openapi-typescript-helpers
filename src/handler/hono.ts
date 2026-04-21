@@ -6,14 +6,16 @@ import type {
 } from "./handler-types";
 import type { OpenAPIHandler } from "./handlers";
 
-type HonoMethods =
-  | "get"
-  | "post"
-  | "put"
-  | "delete"
-  | "options"
-  | "patch"
-  | "all";
+const honoMethods = [
+  "get",
+  "post",
+  "put",
+  "delete",
+  "options",
+  "patch",
+] as const;
+
+type HonoMethods = (typeof honoMethods)[number];
 
 type HonoInstance = {
   [key in HonoMethods]: (
@@ -49,12 +51,26 @@ export function registerOpenAPIHandlerToHono(
   honoInstance: HonoInstance,
   handler: OpenAPIHandler<Context>,
 ) {
-  // Hono handles HEAD via GET automatically, so head is not in HonoMethods
-  honoInstance[handler.method as HonoMethods](
+  const method = handler.method as string;
+  if (!honoMethods.includes(method as HonoMethods)) {
+    throw new Error(
+      `Unsupported HTTP method "${method}" for Hono adapter. Supported: ${honoMethods.join(", ")}`,
+    );
+  }
+  honoInstance[method as HonoMethods](
     `${handler.baseUrl}${handler.colonUrlPattern}`,
     async (c: Context) => {
-      const genericReq = honoContextToGenericOpenAPIRequest(c);
-      const response = await handler.handle(genericReq, c);
+      let response: GenericOpenAPIResponse | Error;
+      try {
+        const genericReq = honoContextToGenericOpenAPIRequest(c);
+        response = await handler.handle(genericReq, c);
+      } catch {
+        return genericOpenAPIResponseToHonoResponse({
+          statusCode: 500,
+          headers: new Headers(),
+          body: { message: "Internal Server Error" },
+        });
+      }
       if (response instanceof Error) {
         throw response;
       }
