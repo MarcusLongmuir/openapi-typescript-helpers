@@ -3,4 +3,5 @@ export * from "./express";
 export * from "./fastify";
 export * from "./handler-types";
 export * from "./handlers";
+export * from "./hono";
 export * from "./PathMatcher";
